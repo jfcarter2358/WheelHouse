@@ -1,0 +1,9 @@
+/debug
+/out
+*.tar.gz
+.python-version
+/compass_out
+.DS_Store
+.pyc
+__pycache__
+compasses

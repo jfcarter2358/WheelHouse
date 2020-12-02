@@ -1,0 +1,5 @@
+jsoncparser==0.0.6
+PyYAML==5.3
+k8sgen==0.0.4
+aphelper==0.0.6
+requests==2.22.0

@@ -1,0 +1,125 @@
+{
+    // the meta section defines information about the parser/subparser
+    // for this first meta section you don't need the parser_help key/field
+    "meta": {
+        "parser_description": "Wheel House",
+        "subparser_title": "subcommands",
+        "subparser_dest": "command",
+        "subparser_description": "valid subcommands"
+    },
+    "subcommands": {
+        "install": {
+            "meta": {
+                "description": "Install a Wheel House Compass",
+                "help": "Install a Wheel House Compass",
+                "function": {
+                    "name": "install",
+                    "args": {}
+                },
+                "requires": {
+                    "uncompressed": {
+                        "AND": ["uncompressed", "local"],
+                        "message": "the 'uncompressed' flag cannot be used without the 'local' flag"
+                    }
+                }
+            },
+            "args": {
+                "config": {
+                    "short": "-n",
+                    "long": "--name",
+                    "help": "Location of the Compass files",
+                    "required": true
+                },
+                "version": {
+                    "short": "-v",
+                    "long": "--version",
+                    "help": "Compass version to pull"
+                },
+                "local": {
+                    "short": "-l",
+                    "long": "--local",
+                    "help": "Set in order to use a local compass package instead of pulling from the internet",
+                    "action": "store_true",
+                    "required": false
+                },
+                "uncompressed": {
+                    "short": "-u",
+                    "long": "--uncompressed",
+                    "help": "Set in order to use an uncompressed compass package",
+                    "action": "store_true",
+                    "required": false
+                },
+                "log-level": {
+                    "long": "--log-level",
+                    "choices": [
+                        "NONE",
+                        "ERROR",
+                        "INFO",
+                        "WARN",
+                        "DEBUG"
+                    ],
+                    "default": "INFO",
+                    "help": "Set the desired log level. Allowed values are ERROR, INFO, WARN, DEBUG"
+                }
+            }
+        },
+        "list": {
+            "meta": {
+                "description": "List versions available for a given compass name",
+                "help": "List versions available for a given compass name",
+                "function": {
+                    "name": "list_compasses",
+                    "args": {}
+                },
+                "requires": {}
+            },
+            "args": {
+                "config": {
+                    "long": "name",
+                    "help": "Compass name to list"
+                },
+                "log-level": {
+                    "long": "--log-level",
+                    "choices": [
+                        "NONE",
+                        "ERROR",
+                        "INFO",
+                        "WARN",
+                        "DEBUG"
+                    ],
+                    "default": "INFO",
+                    "help": "Set the desired log level. Allowed values are ERROR, INFO, WARN, DEBUG"
+                }
+            }
+        },
+        "search": {
+            "meta": {
+                "description": "Fuzzy search for Compass packages",
+                "help": "Fuzzy search for Compass packages",
+                "function": {
+                    "name": "search_compasses",
+                    "args": {}
+                },
+                "requires": {}
+            },
+            "args": {
+                "config": {
+                    "long": "name",
+                    "help": "Compass name to search for"
+                },
+                "log-level": {
+                    "long": "--log-level",
+                    "choices": [
+                        "NONE",
+                        "ERROR",
+                        "INFO",
+                        "WARN",
+                        "DEBUG"
+                    ],
+                    "default": "INFO",
+                    "help": "Set the desired log level. Allowed values are ERROR, INFO, WARN, DEBUG"
+                }
+            }
+        }
+    }
+}
